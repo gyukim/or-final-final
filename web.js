@@ -58,7 +58,10 @@ io.on("connect", socket => {
     console.log(nowSelectPage);
     io.emit("startPageReceive", nowSelectPage);
   });
-  
+  socket.on("speedDisplay", data => {
+    console.log(nowSelectPage);
+    io.emit("speedDisplayReceive", data);
+  });
   
   socket.broadcast.emit("pageNumSend", nowSelectPage);
   socket.on('disconnect',function(){    socket.broadcast.emit("connectCountDeliv", connectConter);
